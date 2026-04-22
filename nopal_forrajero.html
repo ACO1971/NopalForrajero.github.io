@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nopal Forrajero — Semilla de Alta Productividad</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-oscuro: #1a3d1f;
+    --verde-medio: #2d6b35;
+    --verde-claro: #4a9e55;
+    --verde-suave: #a8d5ad;
+    --tierra: #c8792a;
+    --tierra-claro: #e8a060;
+    --crema: #f5f0e8;
+    --blanco: #fefefe;
+    --gris-texto: #2a2a2a;
+    --gris-suave: #6b6b6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--gris-texto);
+    background: var(--blanco);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--verde-oscuro);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(74,158,85,0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(200,121,42,0.10) 0%, transparent 40%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.015) 40px,
+        rgba(255,255,255,0.015) 41px
+      );
+  }
+
+  .nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--verde-suave);
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .nav-cta {
+    background: var(--tierra);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--tierra-claro); }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 0 60px 80px;
+    max-width: 900px;
+  }
+
+  .hero-eyebrow {
+    color: var(--tierra-claro);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--tierra-claro);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: white;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    font-weight: 900;
+  }
+
+  .hero h1 em {
+    color: var(--verde-suave);
+    font-style: normal;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.85);
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+    font-weight: 400;
+  }
+  .badge-icon { font-size: 1rem; }
+
+  /* stat strip */
+  .stat-strip {
+    background: var(--tierra);
+    padding: 20px 60px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
+
+  .stat-item {
+    flex: 1;
+    min-width: 160px;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 20px;
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+    display: block;
+  }
+  .stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.75);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 60px; }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--verde-medio);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--verde-oscuro);
+  }
+
+  .section-desc {
+    color: var(--gris-suave);
+    font-size: 1rem;
+    line-height: 1.75;
+    max-width: 580px;
+    font-weight: 300;
+  }
+
+  /* ── QUÉ ES ── */
+  .que-es {
+    background: var(--crema);
+  }
+
+  .que-es-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .que-es-visual {
+    position: relative;
+  }
+
+  .nopal-svg-wrap {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .que-es-puntos {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .punto {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .punto-icono {
+    width: 42px;
+    height: 42px;
+    background: var(--verde-oscuro);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+
+  .punto-texto h4 {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 4px;
+  }
+
+  .punto-texto p {
+    font-size: 0.85rem;
+    color: var(--gris-suave);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── COMPARATIVO ── */
+  .comparativo { background: white; }
+
+  .chart-container {
+    margin-top: 50px;
+    background: var(--crema);
+    border-radius: 8px;
+    padding: 40px;
+    overflow-x: auto;
+  }
+
+  .chart-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .bar-chart { display: flex; flex-direction: column; gap: 20px; }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 70px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bar-label {
+    font-size: 0.82rem;
+    color: var(--gris-texto);
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .bar-track {
+    background: rgba(0,0,0,0.06);
+    border-radius: 3px;
+    height: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    position: relative;
+    transition: width 1s ease;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  .bar-fill.nopal { background: var(--verde-medio); }
+  .bar-fill.alfalfa { background: #7ab87a; }
+  .bar-fill.sorgo { background: #c8a84a; }
+  .bar-fill.pasto { background: #b0c870; }
+
+  .bar-val {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gris-texto);
+  }
+
+  .chart-note {
+    font-size: 0.75rem;
+    color: var(--gris-suave);
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  /* doble chart grid */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .chart-box {
+    background: var(--crema);
+    border-radius: 8px;
+    padding: 36px;
+  }
+
+  /* ── PRECIO / ROI ── */
+  .inversion { background: var(--verde-oscuro); color: white; }
+
+  .inversion .section-eyebrow { color: var(--tierra-claro); }
+  .inversion .section-title { color: white; }
+  .inversion .section-desc { color: rgba(255,255,255,0.6); }
+
+  .inv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+  }
+
+  .inv-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 36px;
+  }
+
+  .inv-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--verde-suave);
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .inv-linea {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-size: 0.88rem;
+  }
+
+  .inv-linea:last-child { border-bottom: none; }
+  .inv-linea-label { color: rgba(255,255,255,0.65); font-weight: 300; }
+  .inv-linea-val { color: white; font-weight: 500; }
+  .inv-linea-val.highlight { color: var(--tierra-claro); font-size: 1rem; font-family: 'Playfair Display', serif; }
+  .inv-linea-val.positivo { color: #7fcf82; }
+
+  .roi-box {
+    margin-top: 50px;
+    background: var(--tierra);
+    border-radius: 8px;
+    padding: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+  }
+
+  .roi-item-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 700;
+  }
+  .roi-item-label {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* ── PRECIO SEMILLA ── */
+  .precio-sec { background: white; }
+
+  .precio-box {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+
+  .precio-card {
+    background: var(--verde-oscuro);
+    border-radius: 8px;
+    padding: 48px;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .precio-card::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(200,121,42,0.15);
+  }
+
+  .precio-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--verde-suave);
+    margin-bottom: 12px;
+  }
+
+  .precio-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .precio-unit {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 6px;
+    margin-bottom: 28px;
+  }
+
+  .precio-why {
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 20px;
+    text-align: left;
+  }
+
+  .precio-why p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .precio-why strong { color: var(--tierra-claro); }
+
+  .precio-beneficios { padding-top: 10px; }
+
+  .precio-beneficio {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .precio-beneficio:last-child { border-bottom: none; }
+
+  .pb-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--verde-oscuro);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .pb-texto h4 { font-size: 0.88rem; font-weight: 500; margin-bottom: 2px; color: var(--verde-oscuro); }
+  .pb-texto p { font-size: 0.8rem; color: var(--gris-suave); line-height: 1.5; font-weight: 300; }
+
+  /* ── USOS ── */
+  .usos { background: var(--crema); }
+
+  .usos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 50px;
+  }
+
+  .uso-card {
+    background: white;
+    border-radius: 8px;
+    padding: 32px 28px;
+    border-top: 3px solid var(--verde-medio);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .uso-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+
+  .uso-icon { font-size: 1.8rem; margin-bottom: 16px; }
+  .uso-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--verde-oscuro); margin-bottom: 10px; }
+  .uso-card p { font-size: 0.83rem; color: var(--gris-suave); line-height: 1.65; font-weight: 300; }
+
+  /* ── PROPIEDADES NUTRICIONALES ── */
+  .nutricion { background: white; }
+
+  .nutri-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    margin-top: 50px;
+    align-items: center;
+  }
+
+  .nutri-tabla { display: flex; flex-direction: column; gap: 0; }
+
+  .nutri-fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+  }
+  .nutri-fila:last-child { border-bottom: none; }
+  .nutri-nombre { font-size: 0.88rem; color: var(--gris-texto); font-weight: 400; }
+
+  .nutri-bar-wrap { display: flex; align-items: center; gap: 12px; width: 55%; }
+  .nutri-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(0,0,0,0.07);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .nutri-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--verde-medio);
+  }
+  .nutri-num { font-size: 0.82rem; color: var(--gris-suave); white-space: nowrap; min-width: 50px; text-align: right; }
+
+  .nutri-destaque {
+    background: var(--crema);
+    border-radius: 8px;
+    padding: 36px;
+  }
+
+  .nutri-destaque h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--verde-oscuro);
+    margin-bottom: 20px;
+  }
+
+  .nutri-destaque p {
+    font-size: 0.88rem;
+    color: var(--gris-suave);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .nutri-pill {
+    display: inline-block;
+    background: var(--verde-oscuro);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    margin: 4px 4px 0 0;
+  }
+
+  /* ── TIMELINE SIEMBRA ── */
+  .timeline-sec { background: var(--verde-oscuro); color: white; }
+  .timeline-sec .section-title { color: white; }
+  .timeline-sec .section-eyebrow { color: var(--tierra-claro); }
+  .timeline-sec .section-desc { color: rgba(255,255,255,0.6); }
+
+  .timeline {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .tl-step { text-align: center; position: relative; padding: 0 10px; }
+
+  .tl-dot {
+    width: 56px;
+    height: 56px;
+    background: var(--tierra);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+    border: 3px solid var(--verde-oscuro);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+  }
+
+  .tl-mes {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--tierra-claro);
+    margin-bottom: 8px;
+  }
+
+  .tl-titulo {
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: white;
+    margin-bottom: 8px;
+  }
+
+  .tl-desc {
+    font-size: 0.77rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    background: var(--crema);
+    text-align: center;
+    padding: 100px 60px;
+  }
+
+  .cta-section .section-title { color: var(--verde-oscuro); max-width: 600px; margin: 0 auto 16px; }
+  .cta-section .section-desc { margin: 0 auto 50px; text-align: center; }
+
+  .cta-contacto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cta-btn {
+    background: var(--verde-oscuro);
+    color: white;
+    padding: 18px 48px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cta-btn:hover { background: var(--verde-medio); }
+  .cta-btn.secundario {
+    background: transparent;
+    color: var(--verde-oscuro);
+    border: 1.5px solid var(--verde-oscuro);
+  }
+  .cta-btn.secundario:hover { background: rgba(0,0,0,0.05); }
+
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+  .contacto-datos {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contacto-item { text-align: center; }
+  .contacto-item-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gris-suave); margin-bottom: 4px; }
+  .contacto-item-val { font-size: 0.95rem; color: var(--verde-oscuro); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--verde-oscuro);
+    padding: 30px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo { font-family: 'Playfair Display', serif; color: var(--verde-suave); font-size: 0.9rem; }
+  .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); }
+
+  /* ── CANVAS CHARTS ── */
+  canvas { max-width: 100%; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav { padding: 20px 24px; }
+    section { padding: 60px 24px; }
+    .hero-content { padding: 0 24px 60px; }
+    .stat-strip { padding: 16px 24px; }
+    .que-es-grid { grid-template-columns: 1fr; gap: 40px; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .inv-grid { grid-template-columns: 1fr; }
+    .precio-box { grid-template-columns: 1fr; }
+    .usos-grid { grid-template-columns: 1fr 1fr; }
+    .nutri-grid { grid-template-columns: 1fr; gap: 30px; }
+    .timeline { grid-template-columns: 1fr; }
+    .timeline::before { display: none; }
+    .tl-step { display: flex; gap: 20px; align-items: flex-start; text-align: left; margin-bottom: 24px; }
+    .tl-dot { flex-shrink: 0; margin: 0; }
+    .roi-box { grid-template-columns: 1fr; gap: 20px; }
+    .contacto-datos { flex-direction: column; gap: 20px; }
+    footer { flex-direction: column; text-align: center; padding: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    .usos-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-badges { flex-direction: column; }
+  }
+
+  /* animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.7s ease both; }
+  .hero h1 { animation: fadeUp 0.7s 0.15s ease both; }
+  .hero-sub { animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-badges { animation: fadeUp 0.7s 0.45s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║          HERO                ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="hero">
+  <div class="hero-pattern"></div>
+  <nav class="nav">
+    <div class="nav-logo">Nopal Forrajero ✦ Colombia</div>
+    <a href="#contacto" class="nav-cta">Solicitar cotización</a>
+  </nav>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Semilla certificada · Opuntia ficus-indica</div>
+    <h1>El forraje que<br><em>transforma</em><br>su ganadería</h1>
+    <p class="hero-sub">
+      Semilla de nopal forrajero sin espinas: más proteína que la alfalfa,
+      50% menos agua, producción durante 20–30 años. Una inversión que se paga sola.
+    </p>
+    <div class="hero-badges">
+      <span class="badge"><span class="badge-icon">🌿</span> +20% proteína cruda</span>
+      <span class="badge"><span class="badge-icon">💧</span> 50% menos agua que alfalfa</span>
+      <span class="badge"><span class="badge-icon">📅</span> Producción por 20–30 años</span>
+      <span class="badge"><span class="badge-icon">🐄</span> Hasta 20 animales por hectárea</span>
+    </div>
+  </div>
+</section>
+
+<!-- stat strip -->
+<div class="stat-strip">
+  <div class="stat-item">
+    <span class="stat-num">400+</span>
+    <span class="stat-label">Ton forraje / hectárea / año</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">20%</span>
+    <span class="stat-label">Proteína cruda (con melaza)</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">20×</span>
+    <span class="stat-label">Más animales por hectárea</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">50%</span>
+    <span class="stat-label">Ahorro en agua vs. alfalfa</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">30</span>
+    <span class="stat-label">Años de vida productiva</span>
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║        QUÉ ES                ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="que-es">
+  <div class="section-eyebrow">El cultivo</div>
+  <h2 class="section-title">¿Qué es el nopal<br>forrajero?</h2>
+  <p class="section-desc">
+    El nopal forrajero (<em>Opuntia ficus-indica</em>), conocido en Colombia como higo o tuna,
+    es una cactácea de regiones semiáridas con propiedades nutricionales excepcionales
+    para la alimentación del ganado bovino, ovino y caprino.
+  </p>
+
+  <div class="que-es-grid">
+    <div class="que-es-visual">
+      <!-- SVG ilustrativo del nopal -->
+      <svg class="nopal-svg-wrap" viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+        <!-- suelo -->
+        <ellipse cx="210" cy="360" rx="130" ry="14" fill="#c8a87a" opacity="0.35"/>
+        <!-- tronco -->
+        <rect x="195" y="310" width="30" height="55" rx="6" fill="#5a7a3a"/>
+        <!-- pencas principales -->
+        <ellipse cx="210" cy="270" rx="52" ry="78" fill="#3d7a45" transform="rotate(-5,210,270)"/>
+        <ellipse cx="140" cy="220" rx="42" ry="65" fill="#4a9255" transform="rotate(-30,140,220)"/>
+        <ellipse cx="280" cy="215" rx="42" ry="65" fill="#4a9255" transform="rotate(30,280,215)"/>
+        <!-- pencas secundarias -->
+        <ellipse cx="90" cy="155" rx="34" ry="52" fill="#5aaa65" transform="rotate(-45,90,155)"/>
+        <ellipse cx="335" cy="155" rx="34" ry="52" fill="#5aaa65" transform="rotate(45,335,155)"/>
+        <ellipse cx="210" cy="170" rx="36" ry="55" fill="#55a55e" transform="rotate(10,210,170)"/>
+        <!-- pencas pequeñas top -->
+        <ellipse cx="165" cy="100" rx="26" ry="40" fill="#70bb7a" transform="rotate(-20,165,100)"/>
+        <ellipse cx="255" cy="100" rx="26" ry="40" fill="#70bb7a" transform="rotate(20,255,100)"/>
+        <!-- aréolas (puntos) en pencas -->
+        <circle cx="210" cy="250" r="3" fill="#2d5a35" opacity="0.4"/>
+        <circle cx="210" cy="270" r="3" fill="#2d5a35" opacity="0.4"/>
+        <circle cx="210" cy="290" r="3" fill="#2d5a35" opacity="0.4"/>
+        <circle cx="198" cy="260" r="3" fill="#2d5a35" opacity="0.4"/>
+        <circle cx="222" cy="260" r="3" fill="#2d5a35" opacity="0.4"/>
+        <!-- tunas / frutos -->
+        <ellipse cx="110" cy="128" rx="10" ry="13" fill="#e05050"/>
+        <ellipse cx="160" cy="80" rx="9" ry="12" fill="#e07040"/>
+        <ellipse cx="270" cy="82" rx="9" ry="12" fill="#c84040"/>
+        <ellipse cx="320" cy="128" rx="10" ry="13" fill="#d06040"/>
+        <!-- etiquetas -->
+        <text x="55" y="128" font-family="DM Sans,sans-serif" font-size="11" fill="#3d7a45" font-weight="500">Tuna (ingreso extra)</text>
+        <line x1="98" y1="128" x2="118" y2="128" stroke="#3d7a45" stroke-width="1"/>
+        <text x="210" y="42" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#2d6b35" font-weight="500">Sin espinas</text>
+        <line x1="210" y1="47" x2="210" y2="62" stroke="#2d6b35" stroke-width="1"/>
+        <text x="352" y="365" text-anchor="end" font-family="DM Sans,sans-serif" font-size="10" fill="#888" font-style="italic">Opuntia ficus-indica</text>
+      </svg>
+    </div>
+
+    <div>
+      <div class="que-es-puntos">
+        <div class="punto">
+          <div class="punto-icono">🌵</div>
+          <div class="punto-texto">
+            <h4>Variedad sin espinas</h4>
+            <p>Las variedades forrajeras (Copena F1, Atlixco, Chicomostoc) no tienen espinas, lo que facilita el manejo y permite el consumo directo por el ganado sin daño alguno.</p>
+          </div>
+        </div>
+        <div class="punto">
+          <div class="punto-icono">💧</div>
+          <div class="punto-texto">
+            <h4>Metabolismo CAM: el ahorro hídrico</h4>
+            <p>Su mecanismo fotosintético especializado le permite producir en condiciones de sequía intensa, abriendo estomas solo de noche para minimizar la pérdida de agua.</p>
+          </div>
+        </div>
+        <div class="punto">
+          <div class="punto-icono">📈</div>
+          <div class="punto-texto">
+            <h4>Propagación por penca (cladodio)</h4>
+            <p>La semilla es la penca misma. Se siembra enterrando un tercio de la penca en el suelo. Simple, económico y con alta tasa de prendimiento incluso en suelos pobres.</p>
+          </div>
+        </div>
+        <div class="punto">
+          <div class="punto-icono">🌍</div>
+          <div class="punto-texto">
+            <h4>Adaptación a Colombia</h4>
+            <p>Ideal para zonas áridas y semiáridas de la Costa Caribe, Santanderes, Boyacá, Valle y La Guajira. Se adapta a suelos de baja fertilidad donde otros cultivos fracasan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      COMPARATIVO             ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="comparativo">
+  <div class="section-eyebrow">Comparativa técnica</div>
+  <h2 class="section-title">Nopal vs. otros forrajes</h2>
+  <p class="section-desc">
+    Los datos son contundentes. El nopal supera en rendimiento y eficiencia hídrica a los
+    principales forrajes utilizados en ganadería colombiana.
+  </p>
+
+  <div class="charts-grid">
+    <div class="chart-box">
+      <div class="chart-title">Rendimiento forraje verde (ton/ha/año)</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Nopal forrajero</div>
+          <div class="bar-track">
+            <div class="bar-fill nopal" style="width:100%"></div>
+          </div>
+          <div class="bar-val">400–800</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Alfalfa (riego)</div>
+          <div class="bar-track">
+            <div class="bar-fill alfalfa" style="width:29%"></div>
+          </div>
+          <div class="bar-val">120–140</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Sorgo forrajero</div>
+          <div class="bar-track">
+            <div class="bar-fill sorgo" style="width:20%"></div>
+          </div>
+          <div class="bar-val">80–100</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Pasto tradicional</div>
+          <div class="bar-track">
+            <div class="bar-fill pasto" style="width:13%"></div>
+          </div>
+          <div class="bar-val">40–60</div>
+        </div>
+      </div>
+      <p class="chart-note">Fuente: CONAZA 2023 / Tierra Fértil / datos agrícolas comparativos</p>
+    </div>
+
+    <div class="chart-box">
+      <div class="chart-title">Proteína cruda (% en materia seca)</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <div class="bar-label">Nopal + melaza</div>
+          <div class="bar-track">
+            <div class="bar-fill nopal" style="width:100%"></div>
+          </div>
+          <div class="bar-val">20%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Alfalfa</div>
+          <div class="bar-track">
+            <div class="bar-fill alfalfa" style="width:90%"></div>
+          </div>
+          <div class="bar-val">18%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Sorgo forrajero</div>
+          <div class="bar-track">
+            <div class="bar-fill sorgo" style="width:60%"></div>
+          </div>
+          <div class="bar-val">12%</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-label">Pasto kikuyo</div>
+          <div class="bar-track">
+            <div class="bar-fill pasto" style="width:55%"></div>
+          </div>
+          <div class="bar-val">11%</div>
+        </div>
+      </div>
+      <p class="chart-note">Con adición de melaza y levaduras (UANL, 2021)</p>
+    </div>
+  </div>
+
+  <div class="chart-container" style="margin-top:30px;">
+    <div class="chart-title">Capacidad de carga animal (animales por hectárea)</div>
+    <div class="bar-chart">
+      <div class="bar-row">
+        <div class="bar-label">Nopal intensivo</div>
+        <div class="bar-track"><div class="bar-fill nopal" style="width:100%"></div></div>
+        <div class="bar-val">20 bovinos</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Alfalfa irrigada</div>
+        <div class="bar-track"><div class="bar-fill alfalfa" style="width:25%"></div></div>
+        <div class="bar-val">5 bovinos</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Pasto mejorado</div>
+        <div class="bar-track"><div class="bar-fill pasto" style="width:15%"></div></div>
+        <div class="bar-val">2–3 bovinos</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Pastizal nativo seco</div>
+        <div class="bar-track"><div class="bar-fill sorgo" style="width:5%"></div></div>
+        <div class="bar-val">0.08 bovinos</div>
+      </div>
+    </div>
+    <p class="chart-note">Sistema intensivo de alimentación a corral. Fuente: Del Moral, 2025 / Bichos de Campo</p>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      INVERSIÓN Y ROI         ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="inversion" id="inversion">
+  <div class="section-eyebrow">Análisis financiero</div>
+  <h2 class="section-title">Inversión y retorno<br>por hectárea</h2>
+  <p class="section-desc">
+    Una hectárea de nopal forrajero produce durante 20 a 30 años. El análisis de costos
+    muestra que la inversión inicial se recupera en el primer ciclo productivo.
+  </p>
+
+  <div class="inv-grid">
+    <div class="inv-card">
+      <h3>Costos de establecimiento — 1 ha</h3>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Semilla (pencas) · ~5,000 unidades</span>
+        <span class="inv-linea-val highlight">$10.000.000</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Preparación del terreno</span>
+        <span class="inv-linea-val">$800.000 – $1.500.000</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Abono orgánico (5–20 ton)</span>
+        <span class="inv-linea-val">$600.000 – $2.000.000</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Mano de obra siembra</span>
+        <span class="inv-linea-val">$400.000 – $800.000</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Sistema de riego (opcional)</span>
+        <span class="inv-linea-val">$1.500.000 – $4.000.000</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Fertilización de sostenimiento (año 1)</span>
+        <span class="inv-linea-val">$300.000 – $600.000</span>
+      </div>
+      <div class="inv-linea" style="margin-top:10px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15);">
+        <span class="inv-linea-label" style="color:white; font-weight:500;">Total estimado año 1</span>
+        <span class="inv-linea-val highlight">$13–19 millones COP</span>
+      </div>
+    </div>
+
+    <div class="inv-card">
+      <h3>Ingresos y ahorro estimado</h3>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Inicio de cosecha (pencas forrajeras)</span>
+        <span class="inv-linea-val">Mes 12–15</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Ahorro en forraje comprado (20 bovinos)</span>
+        <span class="inv-linea-val positivo">$12–18 M COP/año</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Ingresos nopalito verdura (desde mes 3)</span>
+        <span class="inv-linea-val positivo">$3–6 M COP/año</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Ingresos venta de tunas</span>
+        <span class="inv-linea-val positivo">$2–4 M COP/año</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Ahorro agua de bebida ganado</span>
+        <span class="inv-linea-val positivo">$1–3 M COP/año</span>
+      </div>
+      <div class="inv-linea">
+        <span class="inv-linea-label">Costo mantenimiento anual año 2+</span>
+        <span class="inv-linea-val">$1.5–3 M COP/año</span>
+      </div>
+      <div class="inv-linea" style="margin-top:10px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.15);">
+        <span class="inv-linea-label" style="color:white; font-weight:500;">Beneficio neto año 2+</span>
+        <span class="inv-linea-val highlight">$17–28 M COP/año</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="roi-box">
+    <div class="roi-item">
+      <div class="roi-item-num">12–18</div>
+      <div class="roi-item-label">Meses recuperación inversión</div>
+    </div>
+    <div class="roi-item">
+      <div class="roi-item-num">25+ años</div>
+      <div class="roi-item-label">Vida productiva del cultivo</div>
+    </div>
+    <div class="roi-item">
+      <div class="roi-item-num">&gt;150%</div>
+      <div class="roi-item-label">ROI estimado año 2</div>
+    </div>
+  </div>
+
+  <p style="margin-top:24px; font-size:0.78rem; color:rgba(255,255,255,0.35); max-width:600px;">
+    * Los valores son estimativos basados en referencias técnicas de CONAZA, estudios de UANL y experiencias
+    documentadas de productores en Colombia y Argentina. Los resultados reales dependen del manejo, clima y suelo.
+  </p>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      PRECIO SEMILLA          ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="precio-sec" id="precio">
+  <div class="section-eyebrow">Nuestra oferta</div>
+  <h2 class="section-title">Precio de la semilla</h2>
+  <p class="section-desc">
+    Ofrecemos semilla de nopal forrajero (pencas-cladodio) de variedades probadas,
+    aptas para las condiciones climáticas colombianas.
+  </p>
+
+  <div class="precio-box">
+    <div class="precio-card">
+      <div class="precio-label">Precio por unidad (penca)</div>
+      <div class="precio-num">$2.000</div>
+      <div class="precio-unit">COP por penca-semilla</div>
+
+      <div class="precio-why">
+        <p>
+          <strong>¿Por qué este precio es competitivo?</strong><br><br>
+          Una hectárea requiere ~5.000 pencas = <strong>$10.000.000 COP</strong> en semilla.
+          Con un retorno estimado de $17–28 millones anuales desde el año 2,
+          la inversión en semilla representa menos del <strong>60% del primer año de beneficios</strong>,
+          con un cultivo que dura décadas.
+          <br><br>
+          Comparado con semilla de maíz forrajero (siembra anual) o alfalfa (requiere riego intensivo),
+          el nopal ofrece el <strong>menor costo por tonelada de forraje producida</strong> en condiciones de baja precipitación.
+        </p>
+      </div>
+    </div>
+
+    <div class="precio-beneficios">
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--verde-oscuro); margin-bottom:20px;">Qué incluye su compra</h3>
+
+      <div class="precio-beneficio">
+        <div class="pb-icon">🌿</div>
+        <div class="pb-texto">
+          <h4>Pencas seleccionadas y orilladas</h4>
+          <p>Material vegetativo de plantas madres sanas, con el período de oreo y cicatrización recomendado para maximizar el prendimiento.</p>
+        </div>
+      </div>
+      <div class="precio-beneficio">
+        <div class="pb-icon">📋</div>
+        <div class="pb-texto">
+          <h4>Guía de siembra y manejo</h4>
+          <p>Instrucciones detalladas de densidad de plantación, orientación de pencas, fertilización y primeros cuidados del cultivo.</p>
+        </div>
+      </div>
+      <div class="precio-beneficio">
+        <div class="pb-icon">🤝</div>
+        <div class="pb-texto">
+          <h4>Asesoría post-venta</h4>
+          <p>Acompañamiento por WhatsApp durante los primeros 3 meses para resolver dudas de establecimiento.</p>
+        </div>
+      </div>
+      <div class="precio-beneficio">
+        <div class="pb-icon">🚚</div>
+        <div class="pb-texto">
+          <h4>Despacho negociable</h4>
+          <p>Para pedidos superiores a 500 pencas coordinamos logística de entrega. Consultenos ubicación y volumen.</p>
+        </div>
+      </div>
+      <div class="precio-beneficio">
+        <div class="pb-icon">💰</div>
+        <div class="pb-texto">
+          <h4>Descuentos por volumen</h4>
+          <p>Pedidos de 1.000+ pencas tienen precio especial. Contáctenos para cotización de hectárea completa.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      USOS                    ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="usos">
+  <div class="section-eyebrow">Versatilidad</div>
+  <h2 class="section-title">Usos del nopal<br>en ganadería</h2>
+  <p class="section-desc">
+    El nopal no es solo forraje. Es un sistema de alimentación completo que reduce
+    dependencia del agua, mejora la condición corporal del ganado y genera ingresos adicionales.
+  </p>
+
+  <div class="usos-grid">
+    <div class="uso-card">
+      <div class="uso-icon">🐄</div>
+      <h3>Forraje directo</h3>
+      <p>Las pencas maduras se cortan y ofrecen directamente al ganado bovino, ovino y caprino. Una vaca adulta consume 20–30 kg/día de nopal fresco, recibiendo simultáneamente hidratación y energía.</p>
+    </div>
+    <div class="uso-card">
+      <div class="uso-icon">🏺</div>
+      <h3>Ensilaje</h3>
+      <p>El nopal picado se puede ensilar para épocas de escasez. Mezclado con melaza y levaduras, el ensilaje alcanza 20% de proteína cruda, superando a la alfalfa convencional.</p>
+    </div>
+    <div class="uso-card">
+      <div class="uso-icon">🍃</div>
+      <h3>Nopalito verdura</h3>
+      <p>Desde el mes 3, las pencas tiernas pueden cosecharse como verdura para consumo humano. En Colombia el nopalito tiene mercado creciente en plazas y restaurantes saludables.</p>
+    </div>
+    <div class="uso-card">
+      <div class="uso-icon">🍑</div>
+      <h3>Producción de tunas</h3>
+      <p>Las variedades doble propósito producen tunas que generan ingresos adicionales por venta directa o transformación. Las tunas también tienen mercado exportador en crecimiento.</p>
+    </div>
+    <div class="uso-card">
+      <div class="uso-icon">🌱</div>
+      <h3>Banco forrajero de emergencia</h3>
+      <p>En épocas de sequía severa, la nopalera actúa como reserva estratégica de forraje cuando los pastos se pierden. Su producción se mantiene incluso en veranos prolongados.</p>
+    </div>
+    <div class="uso-card">
+      <div class="uso-icon">♻️</div>
+      <h3>Abono orgánico circular</h3>
+      <p>El guano del ganado que consume nopal se usa para fertilizar la nopalera, creando un circuito virtuoso que mejora la productividad del cultivo hasta en un 70% sin costos adicionales.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      NUTRICIÓN               ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="nutricion">
+  <div class="section-eyebrow">Composición nutricional</div>
+  <h2 class="section-title">Valor nutritivo<br>del nopal forrajero</h2>
+
+  <div class="nutri-grid">
+    <div>
+      <div class="nutri-tabla">
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Agua (%) — penca fresca</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:93%"></div></div>
+            <span class="nutri-num">90–93%</span>
+          </div>
+        </div>
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Proteína cruda (MS)</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:100%"></div></div>
+            <span class="nutri-num">hasta 20%</span>
+          </div>
+        </div>
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Fibra cruda (MS)</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:75%; background: var(--tierra);"></div></div>
+            <span class="nutri-num">~15%</span>
+          </div>
+        </div>
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Carbohidratos solubles (MS)</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:60%; background:#c8a84a;"></div></div>
+            <span class="nutri-num">~12%</span>
+          </div>
+        </div>
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Calcio (MS)</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:40%; background:#7ab87a;"></div></div>
+            <span class="nutri-num">2–3%</span>
+          </div>
+        </div>
+        <div class="nutri-fila">
+          <span class="nutri-nombre">Digestibilidad</span>
+          <div class="nutri-bar-wrap">
+            <div class="nutri-bar"><div class="nutri-bar-fill" style="width:88%"></div></div>
+            <span class="nutri-num">Alta</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nutri-destaque">
+      <h3>¿Cómo maximizar la proteína?</h3>
+      <p>
+        El nopal fresco aporta hidratación, fibra y azúcares solubles, pero su proteína cruda
+        como penca fresca ronda el 4–8% en materia seca. Para alcanzar el 20%, se recomienda
+        el siguiente protocolo desarrollado por la Universidad Autónoma de Nuevo León (2021):
+        <br><br>
+        <strong>Nopal picado + Melaza (3–5%) + Levaduras + Ácido cítrico</strong>
+        <br><br>
+        Este proceso eleva la proteína cruda por encima de la alfalfa, el sorgo y la soya,
+        convirtiéndolo en el forraje de mayor valor nutritivo por peso y por costo en zonas con limitaciones hídricas.
+        <br><br>
+        El contenido de agua de la penca (90–93%) también substituye parcialmente el agua
+        de bebida del ganado, reduciendo la demanda de agua limpia hasta en un 40%.
+      </p>
+      <br>
+      <div>
+        <span class="nutri-pill">Alta digestibilidad</span>
+        <span class="nutri-pill">Alta palatabilidad</span>
+        <span class="nutri-pill">Calcio disponible</span>
+        <span class="nutri-pill">Hidratación directa</span>
+        <span class="nutri-pill">Sin anti-nutritivos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      TIMELINE SIEMBRA        ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="timeline-sec">
+  <div class="section-eyebrow">Paso a paso</div>
+  <h2 class="section-title">De la semilla al forraje</h2>
+  <p class="section-desc">El proceso de establecimiento de una nopalera es sencillo y el productor puede manejarlo con mano de obra propia desde el primer día.</p>
+
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-dot">🛒</div>
+      <div class="tl-mes">Semana 1</div>
+      <div class="tl-titulo">Adquisición y oreo</div>
+      <div class="tl-desc">Compra de pencas-semilla. Se dejan orear 15–20 días a la sombra para que cicatricen las heridas de corte.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🌱</div>
+      <div class="tl-mes">Semana 3–4</div>
+      <div class="tl-titulo">Preparación y siembra</div>
+      <div class="tl-desc">Preparación de suelo, trazado de líneas y siembra enterrando 1/3 de la penca. Densidad recomendada: 5.000–10.000 pl/ha.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🌿</div>
+      <div class="tl-mes">Mes 3–4</div>
+      <div class="tl-titulo">1er corte nopalito</div>
+      <div class="tl-desc">Las pencas tiernas pueden cosecharse como nopalito verdura, generando los primeros ingresos mientras el cultivo madura.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">✂️</div>
+      <div class="tl-mes">Mes 12–15</div>
+      <div class="tl-titulo">Inicio de forraje</div>
+      <div class="tl-desc">Primera cosecha de pencas maduras para forraje. El rendimiento aumenta cada año hasta estabilizarse en año 3–4.</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🏆</div>
+      <div class="tl-mes">Año 3–5+</div>
+      <div class="tl-titulo">Producción plena</div>
+      <div class="tl-desc">Rendimiento máximo estabilizado. La nopalera produce durante 20–30 años con mantenimiento mínimo.</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ╔══════════════════════════════╗ -->
+<!-- ║      CTA FINAL               ║ -->
+<!-- ╚══════════════════════════════╝ -->
+<section class="cta-section" id="contacto">
+  <div class="section-eyebrow" style="text-align:center">Contáctenos</div>
+  <h2 class="section-title">Listo para transformar<br>su operación ganadera</h2>
+  <p class="section-desc">
+    Comuníquese hoy para recibir cotización personalizada según su
+    extensión, zona y objetivos de producción. Le asesoramos sin costo.
+  </p>
+
+  <div class="cta-buttons" style="margin-bottom:0">
+    <a href="https://wa.me/57XXXXXXXXXX?text=Hola,%20me%20interesa%20la%20semilla%20de%20nopal%20forrajero" class="cta-btn" target="_blank">
+      📱 WhatsApp
+    </a>
+    <a href="mailto:contacto@nopalforrajero.co" class="cta-btn secundario">
+      ✉️ Correo electrónico
+    </a>
+  </div>
+
+  <div class="contacto-datos">
+    <div class="contacto-item">
+      <div class="contacto-item-label">Precio por penca</div>
+      <div class="contacto-item-val" style="font-family:'Playfair Display',serif; font-size:1.4rem; color:var(--verde-medio);">$2.000 COP</div>
+    </div>
+    <div class="contacto-item">
+      <div class="contacto-item-label">Pedido mínimo</div>
+      <div class="contacto-item-val">100 pencas</div>
+    </div>
+    <div class="contacto-item">
+      <div class="contacto-item-label">Entrega</div>
+      <div class="contacto-item-val">A coordinar</div>
+    </div>
+    <div class="contacto-item">
+      <div class="contacto-item-label">Asesoría incluida</div>
+      <div class="contacto-item-val">Sí, 3 meses</div>
+    </div>
+  </div>
+
+  <p style="font-size:0.78rem; color:var(--gris-suave); margin-top:32px; max-width:500px; margin-left:auto; margin-right:auto;">
+    Por favor reemplace el número de WhatsApp y correo con los datos reales de contacto antes de compartir esta página.
+  </p>
+</section>
+
+
+<footer>
+  <div class="footer-logo">Nopal Forrajero ✦ Colombia</div>
+  <div class="footer-note">
+    Información técnica basada en fuentes: CONAZA México, UANL, FAO, CONtexto Ganadero, Bichos de Campo, Tierra Fértil.
+    Los valores son estimativos de referencia.
+  </div>
+</footer>
+
+</body>
+</html>
